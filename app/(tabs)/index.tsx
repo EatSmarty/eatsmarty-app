@@ -12,7 +12,7 @@ export default function HomeScreen() {
     const _handleMore = () => console.log('Shown more');
   }
   return (
-      <AppBar content="home"/>
+      <AppBar content="Home"/>
     );
   }
 
