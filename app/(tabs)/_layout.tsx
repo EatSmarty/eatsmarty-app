@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BottomNavigation } from 'react-native-paper';
+import { BottomNavigation, MD3LightTheme as DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import { useRouter } from 'expo-router';
 import { View, StyleSheet } from 'react-native';
 import AppBar from '@/components/AppBar';
@@ -12,9 +12,9 @@ export default function TabLayout() {
   const [index, setIndex] = React.useState(0);
 
   const routes = [
-    { key: 'home', title: 'Home', focusedIcon: 'home', unfocusedIcon: 'heart-outline' },
-    { key: 'scan', title: 'Scan', focusedIcon: 'qrcode' },
-    { key: 'additives', title: 'Additives', focusedIcon: 'menu' }
+    { key: 'home', title: 'Home', focusedIcon: 'home', unfocusedIcon: 'home-outline', color: "transparent" },
+    { key: 'scan', title: 'Scan', focusedIcon: 'qrcode', color: "transparent" },
+    { key: 'additives', title: 'Additives', focusedIcon: 'menu', color: "transparent" }
   ];
 
   const handleIndexChange = (newIndex: number) => {
@@ -34,16 +34,34 @@ export default function TabLayout() {
     additives: AdditivesScreen
   });
 
-  return (
-    <View style={styles.container}>
-      <AppBar content={routes[index].title} />
+  const theme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      secondaryContainer: routes[index].color, // Change background for selected tab
+    },
+  };
 
-      <BottomNavigation
-        navigationState={{ index, routes }}
-        onIndexChange={handleIndexChange}
-        renderScene={renderScene}
-      />
-    </View>
+  return (
+    <PaperProvider theme={theme}>
+      <View style={styles.container}>
+        <AppBar content={routes[index].title} />
+
+        <BottomNavigation
+          navigationState={{ index, routes }}
+          onIndexChange={handleIndexChange}
+          renderScene={renderScene}
+          activeColor='#18DAA3'
+          barStyle={{
+            backgroundColor: '#E2F6F1',
+            elevation: 4,
+            height: 70
+          }}
+          shifting={true}
+          sceneAnimationEnabled={true}
+        />
+      </View>
+    </PaperProvider>
   );
 }
 
