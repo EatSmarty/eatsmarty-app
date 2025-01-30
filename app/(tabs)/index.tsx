@@ -1,5 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import AppBar from '@/components/AppBar';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function HomeScreen() {

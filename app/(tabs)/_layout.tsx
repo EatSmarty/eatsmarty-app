@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BottomNavigation, MD3LightTheme as DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
+import { Appbar, BottomNavigation, MD3LightTheme as DefaultTheme, Provider as PaperProvider, TextInput } from 'react-native-paper';
 import { useRouter } from 'expo-router';
 import { View, StyleSheet } from 'react-native';
 import AppBar from '@/components/AppBar';
@@ -10,6 +10,8 @@ import AdditivesScreen from "./additives";
 export default function TabLayout() {
   const router = useRouter();
   const [index, setIndex] = React.useState(0);
+  const [isSearchActive, setIsSearchActive] = React.useState(false);
+  const [searchQuery, setSearchQuery] = React.useState("");
 
   const routes = [
     { key: 'home', title: 'Home', focusedIcon: 'home', unfocusedIcon: 'home-outline', color: "transparent" },
@@ -38,15 +40,33 @@ export default function TabLayout() {
     ...DefaultTheme,
     colors: {
       ...DefaultTheme.colors,
-      secondaryContainer: routes[index].color, // Change background for selected tab
+      secondaryContainer: routes[index].color,
     },
+  };
+
+  const handleSearchPress = () => {
+    setIsSearchActive((prev) => !prev);
   };
 
   return (
     <PaperProvider theme={theme}>
       <View style={styles.container}>
-        <AppBar content={routes[index].title} />
-
+        <AppBar content={routes[index].title}>
+          {index === 0 && (
+            <Appbar.Action icon="magnify" onPress={handleSearchPress} />
+          )}
+        </AppBar>
+        {isSearchActive && index === 0 && (
+          <View style={styles.searchContainer}>
+            <TextInput
+              label="Search"
+              value={searchQuery}
+              onChangeText={setSearchQuery}
+              mode="outlined"
+              autoFocus
+            />
+          </View>
+        )}
         <BottomNavigation
           navigationState={{ index, routes }}
           onIndexChange={handleIndexChange}
@@ -68,5 +88,9 @@ export default function TabLayout() {
 const styles = StyleSheet.create({
   container: {
     flex: 1
-  }
+  },
+  searchContainer: {
+    paddingHorizontal: 15,
+    backgroundColor: '#fff',
+  },
 });
