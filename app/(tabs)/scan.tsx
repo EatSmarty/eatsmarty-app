@@ -1,11 +1,14 @@
 /* eslint-disable react/react-in-jsx-scope */
-import AppBar from '@/components/AppBar';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 
 
-export default function TabTwoScreen() {
+export default function ScanScreen() {
   return (
-    <AppBar content="Scan"/>
+    <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Scan screen</Text>
+      </View>
+    </View>
   );
 }
 

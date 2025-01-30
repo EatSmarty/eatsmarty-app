@@ -3,8 +3,11 @@ import { BottomNavigation } from 'react-native-paper';
 import { useRouter } from 'expo-router';
 import { View, StyleSheet } from 'react-native';
 import AppBar from '@/components/AppBar';
-export default function TabLayout() {
+import HomeScreen from "./index";
+import ScanScreen from "./scan";
+import AdditivesScreen from "./additives";
 
+export default function TabLayout() {
   const router = useRouter();
   const [index, setIndex] = React.useState(0);
 
@@ -25,6 +28,12 @@ export default function TabLayout() {
     router.push(routeMap[newIndex]);
   };
 
+  const renderScene = BottomNavigation.SceneMap({
+    home: HomeScreen,
+    scan: ScanScreen,
+    additives: AdditivesScreen
+  });
+
   return (
     <View style={styles.container}>
       <AppBar content={routes[index].title} />
@@ -32,7 +41,7 @@ export default function TabLayout() {
       <BottomNavigation
         navigationState={{ index, routes }}
         onIndexChange={handleIndexChange}
-        renderScene={() => null} // No need for SceneMap
+        renderScene={renderScene}
       />
     </View>
   );
