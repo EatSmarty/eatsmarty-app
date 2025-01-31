@@ -2,12 +2,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import AppBar from '@/components/AppBar';
 import { StyleSheet, Text, View } from 'react-native';
+import Banner from '@/components/ui/Banner';
 
 export default function HomeScreen() {
   return (
       <View style={{ flex: 1 }}>
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text>Home screen</Text>
+          <Banner />
         </View>
     </View>
     );
@@ -15,9 +16,9 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   safeArea: {
-    flex: 1, 
-    justifyContent: 'center', 
-    alignItems: 'center',
+    // flex: 1, 
+    // justifyContent: 'center', 
+    // alignItems: 'center',
    }
   },
 );
