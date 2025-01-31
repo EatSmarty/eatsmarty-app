@@ -1,15 +1,33 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 import React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet, Image, Text } from 'react-native';
 // import pic1 from '';
 
 const data = [
-    require('@/assets/images/0001001.png'),
-    require('@/assets/images/0002401.png'),
-    require('@/assets/images/0008301.png'),
-    require('@/assets/images/0023701.png'),
-    require('@/assets/images/0014501.png'),
-    require('@/assets/images/0001601.png'),
+    {
+        imgurl: require('@/assets/images/0001001.png'),
+        text: 'drink'
+    },
+    {
+        imgurl: require('@/assets/images/0002401.png'),
+        text: 'crops'
+    },
+    {
+        imgurl: require('@/assets/images/0008301.png'),
+        text: 'fish'
+    },
+    {
+        imgurl: require('@/assets/images/0002601.png'),
+        text: 'meat'
+    },
+    {
+        imgurl: require('@/assets/images/0014501.png'),
+        text: 'Vegetables'
+    },
+    {
+        imgurl: require('@/assets/images/boiled-egg-3311535-27548110.png'),
+        text: 'dairy'
+    },
   ];
 
 const CategoryCard = () => {
@@ -17,7 +35,8 @@ const CategoryCard = () => {
     <View style={styles.container}>
         {data.map((item, index) => (
             <View key={index} style={styles.box}>
-                <Image source={item} style={styles.image} />
+                <Image source={item.imgurl} style={styles.image} />
+                <Text>{item.text}</Text>
             </View>
         ))}
     </View>
@@ -47,8 +66,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   image: {
-    width: '100%',
-    height: '100%',
+    width: '70%',
+    height: '70%',
     resizeMode: 'contain',
     borderRadius: 10,
   },
