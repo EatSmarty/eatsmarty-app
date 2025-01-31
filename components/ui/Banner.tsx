@@ -6,8 +6,8 @@ const Banner = () => (
     <View style={styles.container}>
       <Card style={styles.card}>
         <Card.Content>
-          <Text variant="titleLarge">Hello 👋</Text>
-          <Text variant="bodyMedium">Scan Like a Detective, Eat Like a Pro</Text>
+          <Text variant="titleLarge" style={styles.text}>Hello 👋</Text>
+          <Text variant="bodyMedium" style={styles.text}>Scan Like a Detective, Eat Like a Pro</Text>
         </Card.Content>
       </Card>
     </View>
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     borderWidth: 0,
   },
   text: {
-    color: '#fff'
+    color: '#333333',
   }
 });
 

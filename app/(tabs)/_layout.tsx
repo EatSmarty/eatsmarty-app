@@ -87,10 +87,13 @@ export default function TabLayout() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   searchContainer: {
     paddingHorizontal: 15,
     backgroundColor: '#fff',
   },
+  appbar: {
+    color: '#333333'
+  }
 });
