@@ -14,7 +14,7 @@ export default function TabLayout() {
   const [searchQuery, setSearchQuery] = React.useState("");
 
   const routes = [
-    { key: 'home', title: 'Home', focusedIcon: 'home', unfocusedIcon: 'home-outline', color: "transparent" },
+    { key: 'home', title: 'Eatsmarty', focusedIcon: 'home', unfocusedIcon: 'home-outline', color: "transparent" },
     { key: 'scan', title: 'Scan', focusedIcon: 'qrcode', color: "transparent" },
     { key: 'additives', title: 'Additives', focusedIcon: 'menu', color: "transparent" }
   ];
