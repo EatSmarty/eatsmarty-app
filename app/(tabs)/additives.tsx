@@ -1,14 +1,14 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { StyleSheet, View, Text } from 'react-native';
-
+import AdditivesList from '@/components/AdditivesList'
 
 export default function AdditivesScreen() {
 
 return (
     <View style={{flex: 1}}>
       <View style={styles.container}>
-        <Text></Text>
+        <AdditivesList />
       </View>
     </View>
   );
