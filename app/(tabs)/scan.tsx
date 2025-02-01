@@ -1,12 +1,12 @@
 /* eslint-disable react/react-in-jsx-scope */
-import { StyleSheet, View, Text } from 'react-native';
-
+import { StyleSheet, View } from 'react-native';
+import { Text } from 'react-native-paper';
 
 export default function ScanScreen() {
   return (
     <View style={{ flex: 1 }}>
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Scan screen</Text>
+        <Text>Scan</Text>
       </View>
     </View>
   );

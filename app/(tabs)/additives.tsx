@@ -2,14 +2,24 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { StyleSheet, View, Text } from 'react-native';
 
-import AppBar from '@/components/AppBar'
+
 export default function AdditivesScreen() {
 
 return (
-    <View style={{ flex: 1 }}>
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Additives screen</Text>
+    <View style={{flex: 1}}>
+      <View style={styles.container}>
+        <Text></Text>
       </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1, 
+    justifyContent: 'flex-start', 
+    alignItems: 'flex-start',
+    paddingHorizontal: 15
+  }
+},
+);

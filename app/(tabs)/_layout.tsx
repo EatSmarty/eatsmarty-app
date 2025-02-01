@@ -52,11 +52,11 @@ export default function TabLayout() {
     <PaperProvider theme={theme}>
       <View style={styles.container}>
         <AppBar content={routes[index].title}>
-          {index === 0 && (
+          {index === 2 && (
             <Appbar.Action icon="magnify" onPress={handleSearchPress} />
           )}
         </AppBar>
-        {isSearchActive && index === 0 && (
+        {isSearchActive && index === 2 && (
           <View style={styles.searchContainer}>
             <TextInput
               label="Search"
@@ -64,6 +64,9 @@ export default function TabLayout() {
               onChangeText={setSearchQuery}
               mode="outlined"
               autoFocus
+              activeOutlineColor='#18DAA3'
+              outlineColor='#18DAA3'
+              textColor='#333'
             />
           </View>
         )}
@@ -92,6 +95,7 @@ const styles = StyleSheet.create({
   searchContainer: {
     paddingHorizontal: 15,
     backgroundColor: '#fff',
+    // outlineColor: 'red'
   },
   appbar: {
     color: '#333333'
