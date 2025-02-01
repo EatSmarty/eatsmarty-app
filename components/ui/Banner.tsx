@@ -15,11 +15,9 @@ const Banner = () => (
 
 const styles = StyleSheet.create({
   container: {
-    position: 'absolute',
-    top: 0,
     width: '100%',
-    padding: 15,
     alignItems: 'center',
+    paddingTop: 20
   },
   card: {
     width: '100%', 

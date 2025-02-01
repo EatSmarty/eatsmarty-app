@@ -3,6 +3,7 @@
 import { StyleSheet, View, Text } from 'react-native';
 import Banner from '@/components/ui/Banner';
 import CategoryCard from '@/components/ui/CategoryCard';
+import History from '@/components/ui/History';
 
 export default function HomeScreen() {
   return (
@@ -10,6 +11,7 @@ export default function HomeScreen() {
         <View style={styles.container}>
           <Banner />
           <CategoryCard />
+          <History />
         </View>
       </View>
     );
@@ -18,8 +20,9 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
     container: {
       flex: 1, 
-      justifyContent: 'center', 
-      alignItems: 'center'
+      justifyContent: 'flex-start', 
+      alignItems: 'flex-start',
+      paddingHorizontal: 15
     }
   },
 );

@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 import React from 'react';
 import { View, StyleSheet, Image, Text } from 'react-native';
-// import pic1 from '';
 
 const data = [
     {
@@ -48,8 +47,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    paddingHorizontal: 10,
-    paddingBottom: 100,
+    paddingTop: 20
   },
   box: {
     width: '30%',
@@ -57,9 +55,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#E2F6F1',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 5,
     borderRadius: 10,
-    padding: 10
+    margin: 5,
+    padding: 5,
   },
   text: {
     color: 'white',
