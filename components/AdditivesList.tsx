@@ -2,9 +2,8 @@ import React from "react";
 import { FlatList, View, StyleSheet, Dimensions } from "react-native";
 import { List, Card, Provider as PaperProvider } from "react-native-paper";
 
-// Get screen width
-const screenWidth = Dimensions.get("window").width;
 
+const screenWidth = Dimensions.get("window").width;
 const additives = [
   { id: "E100", name: "Curcumin", type: "Coloring" },
   { id: "E200", name: "Sorbic Acid", type: "Preservative" },
