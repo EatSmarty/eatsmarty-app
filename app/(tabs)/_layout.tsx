@@ -74,11 +74,12 @@ export default function TabLayout() {
           navigationState={{ index, routes }}
           onIndexChange={handleIndexChange}
           renderScene={renderScene}
+          inactiveColor='#333'
           activeColor='#18DAA3'
           barStyle={{
             backgroundColor: '#E2F6F1',
             elevation: 4,
-            height: 70
+            height: 70,
           }}
           shifting={true}
           sceneAnimationEnabled={true}
