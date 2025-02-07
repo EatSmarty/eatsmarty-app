@@ -7,6 +7,7 @@ interface Additive {
   id: string;
   name: string;
   eNumber: string;
+  isHalal: boolean;
   type: string;
 }
 
@@ -49,17 +50,16 @@ const AdditiveList: React.FC = () => {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <Button onPress={() => router.push(`/${item.id}`)}>
-            <View style={styles.cardWrapper}>
-              <Card style={styles.card}>
+              <Card style={item.isHalal ? styles.halalcard : styles.haramcard}>
                 <Card.Content>
                   <List.Item
                     title={item.eNumber +" "+ item.name}
-                    description={item.type}
+                    description={(item.isHalal == true) ? 'Halal' :
+                                 (item.isHalal == false) ? 'Haram' : 'Mushbooh'}
                     left={(props) => <List.Icon {...props} icon="flask-outline" />}
                   />
                 </Card.Content>
               </Card>
-            </View>
           </Button>
         )}
       />
@@ -73,12 +73,13 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingVertical: 10,
   },
-  card: {
+  halalcard: {
     backgroundColor: "#E2F6F1",
     width: "100%"
   },
-  cardWrapper: {
-    margin: 10,
+  haramcard: {
+    backgroundColor: "#FF6961", 
+    width: "100%",
   },
   loader: {
     flex: 1,
