@@ -9,6 +9,7 @@ interface Additive {
   eNumber: string;
   isHalal: boolean;
   type: string;
+  source: string;
 }
 
 const AdditiveList: React.FC = () => {
@@ -56,7 +57,10 @@ const AdditiveList: React.FC = () => {
                     title={item.eNumber +" "+ item.name}
                     description={(item.isHalal == true) ? 'Halal' :
                                  (item.isHalal == false) ? 'Haram' : 'Mushbooh'}
-                    left={(props) => <List.Icon {...props} icon="flask-outline" />}
+                    left={(props) => <List.Icon {...props} icon={(item.source == 'plant') ? 'leaf' :
+                      (item.source == 'synthetic') ? 'flask' : 'bug'
+                     } />}
+                    
                   />
                 </Card.Content>
               </Card>
