@@ -1,9 +1,17 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, Image } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import { useAdditives } from "@/components/additiveContext";
-// import { Card } from "react-native-paper";
-import Icon from "react-native-vector-icons/FontAwesome6"
+// import SvgInsect from "@/assets/icons/insect.svg";
+
+const iconMap: Record<string, undefined> = {
+  plant: require("@/assets/icons/plant.png"),
+  synthetic: require("@/assets/icons/synthetic.png"),
+  insect: require("@/assets/icons/insect.png"),
+  alcohol: require("@/assets/icons/alcohol.png"),
+  pig: require("@/assets/icons/pig.png"),
+};
 
 const AdditiveDetail: React.FC = () => {
   const { id } = useLocalSearchParams();
@@ -18,33 +26,18 @@ const AdditiveDetail: React.FC = () => {
   return (
     <View style={styles.container}>
       <View style={styles.detailCard}>
-        <View>
+        <View style={{display: "flex", justifyContent: "space-between"}}>
           <Text style={styles.headerText}>{additive.eNumber}</Text>
           <Text style={styles.text}>{additive.name}</Text>
         </View>
-        <View>
+        <View style={{display: "flex", justifyContent: "space-between"}}>
           <Text style={styles.text}>{additive.source}</Text>
-          <Icon name="leaf"/>
-          <Icon name="bug"/>
-          <Icon name="flask"/>
-          <Icon name="fa-solid fa-wine-bottle"/>
+          <Image source={iconMap[additive.source]} style={styles.iconStyle}/>
         </View>
       </View>
     </View>
   );
 };
-
-
-
-{/* <Card>
-  <Card.Title title={additive.eNumber + " " + additive.name} />
-  <Card.Content>
-    <Text>Type: {additive.type}</Text>
-    <Text>Source: {additive.source}</Text>
-    <Text>Status: {additive.isHalal ? "Halal" : "Haram"}</Text>
-  </Card.Content>
-</Card> */}
-
 
 
 const styles = StyleSheet.create({
@@ -54,7 +47,7 @@ const styles = StyleSheet.create({
   detailCard: { 
     backgroundColor: "#E2F6F1", 
     width: "95%", 
-    height: 200,
+    height: 150,
     borderRadius: 20,
     position: "absolute",
     top: 0,
@@ -63,8 +56,9 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "space-between",
     flexDirection: "row",
-    alignItems: "flex-start"
+    alignItems: "stretch",
   },
+  iconStyle: { width: 50, height: 50, marginTop: 10 },
   error: { color: "red", textAlign: "center", marginTop: 20 },
 });
 
