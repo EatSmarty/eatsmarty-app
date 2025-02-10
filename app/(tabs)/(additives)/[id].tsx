@@ -35,13 +35,31 @@ const AdditiveDetail: React.FC = () => {
           <Image source={iconMap[additive.source]} style={styles.iconStyle}/>
         </View>
       </View>
+      <View style={{margin: 15, gap: 20}}>
+        <View>
+          <Text style={styles.text}>Usage</Text>
+          <Text>{additive.usage}</Text>
+        </View>
+        <View>
+          <Text style={styles.text}>Desciption</Text>
+          <Text>{additive.description}</Text>
+        </View>
+        <View>
+          <Text style={styles.text}>Restrictions</Text>
+          <Text>{additive.restrictions}</Text>
+        </View>
+        <View>
+          <Text style={styles.text}>Side Effect</Text>
+          <Text>{additive.sideEffect}</Text>
+        </View>
+      </View>
     </View>
   );
 };
 
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: "center", alignItems: "center" },
+  container: { flex: 1, justifyContent: "flex-start", alignItems: "center", marginTop: 10 },
   headerText: { fontSize: 28, fontWeight: "bold", color: "#333" },
   text: { fontSize: 20, fontWeight: "bold", color: "#333" },
   detailCard: { 
@@ -49,9 +67,6 @@ const styles = StyleSheet.create({
     width: "95%", 
     height: 150,
     borderRadius: 20,
-    position: "absolute",
-    top: 0,
-    marginTop: 10,
     padding: 15,
     display: "flex",
     justifyContent: "space-between",

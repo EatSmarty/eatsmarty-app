@@ -7,6 +7,11 @@ interface Additive {
   isHalal: boolean;
   type: string;
   source: string;
+  usage: string;
+  description: string;
+  restrictions: string;
+  sideEffect: string;
+  otherNames: string;
 }
 
 interface AdditiveContextType {
